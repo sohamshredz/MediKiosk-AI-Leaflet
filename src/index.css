@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+:root {
+  /* Core Neutrals & Surfaces (Light) */
+  --ink: #101826;
+  --ink-soft: #4B5566;
+  --canvas: #F6F5F1;
+  --paper: #F6F5F1;
+  --surface: #FFFFFF;
+  --surface-raised: #FFFFFF;
+  --surface-mint: #F0FDFA;
+  --line: #E4E2DA;
+
+  /* Brand / Clinical Teal */
+  --brand-600: #0D7A73;
+  --brand-700: #0A5E58;
+  --teal-900: #0A5E58;
+  --teal-700: #0D7A73;
+  --teal-500: #14B8A6;
+  --teal-300: #5EEAD4;
+
+  /* Role Accents */
+  --role-kiosk: #3C4E9C;
+  --role-triage: #C4611A;
+  --role-doctor: #0D7A73;
+  --role-admin: #6B4C8A;
+  --role-patient: #C08A1E;
+
+  /* Semantic Alerts */
+  --critical: #B93A2E;
+  --success: #2E7D4F;
+  --marigold: #C08A1E;
+  --marigold-soft: #FEF3C7;
+  --coral: #B93A2E;
+  --coral-soft: #FEE2E2;
+
+  /* Sizing & Elevation */
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --shadow-subtle: 0 1px 2px rgba(16, 24, 38, 0.04), 0 2px 6px rgba(16, 24, 38, 0.04);
+  --shadow: 0 1px 3px rgba(16, 24, 38, 0.06), 0 8px 24px rgba(16, 24, 38, 0.05);
+  --shadow-raised: 0 12px 32px -4px rgba(16, 24, 38, 0.12), 0 4px 12px -2px rgba(16, 24, 38, 0.06);
+
+  /* Typographic Scale (1.25 ratio scale) */
+  --text-xs: 0.75rem;   /* 12px */
+  --text-sm: 0.8125rem; /* 13px */
+  --text-base: 0.9375rem; /* 15px */
+  --text-md: 1.0625rem; /* 17px */
+  --text-lg: 1.3125rem; /* 21px */
+  --text-xl: 1.75rem;   /* 28px */
+  --text-2xl: 2.375rem; /* 38px */
+}
+
+.dark {
+  /* Core Neutrals & Surfaces (Dark) */
+  --ink: #EDEFF3;
+  --ink-soft: #A6ADB9;
+  --canvas: #0B0F14;
+  --paper: #0B0F14;
+  --surface: #141A22;
+  --surface-raised: #1B222C;
+  --surface-mint: #0E2A27;
+  --line: #232B36;
+
+  /* Brand / Clinical Teal (Dark) */
+  --brand-600: #2FBDAE;
+  --brand-700: #22A297;
+  --teal-900: #22A297;
+  --teal-700: #2FBDAE;
+  --teal-500: #2FBDAE;
+  --teal-300: #5EEAD4;
+
+  /* Role Accents (Dark) */
+  --role-kiosk: #8593D8;
+  --role-triage: #E8935A;
+  --role-doctor: #2FBDAE;
+  --role-admin: #B08FD1;
+  --role-patient: #E0B84D;
+
+  /* Semantic Alerts (Dark) */
+  --critical: #E2685A;
+  --success: #5CBA82;
+  --marigold: #E0B84D;
+  --marigold-soft: #3D2D0F;
+  --coral: #E2685A;
+  --coral-soft: #3B1612;
+
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-raised: 0 12px 32px -4px rgba(0, 0, 0, 0.6), 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: var(--canvas);
+    color: var(--ink);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .font-serif-fraunces {
+    font-family: 'Fraunces', Georgia, serif;
+    letter-spacing: -0.015em;
+  }
+
+  .font-mono-plex {
+    font-family: 'IBM Plex Mono', monospace;
+    font-feature-settings: "tnum" 1;
+  }
+
+  /* High-legibility form and writing field styling */
+  input, textarea, select {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+
+  ::placeholder {
+    color: var(--ink-soft);
+    opacity: 0.7;
+  }
+}
+
+/* Pulse Wave Signature Animation */
+.pulse-path {
+  fill: none;
+  stroke: var(--marigold);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  animation: pulse-draw 2.6s ease-out forwards;
+}
+
+@keyframes pulse-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes voice-ripple {
+  0% { transform: scale(0.8); opacity: 0.9; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+.animate-voice-ripple {
+  animation: voice-ripple 1.4s ease-out infinite;
+}
+
+/* Custom scrollbar for dense clinical portals */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-soft);
+}
+

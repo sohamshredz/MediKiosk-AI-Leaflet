@@ -1,0 +1,12 @@
+{
+  "name": "MediKiosk AI – AI Clinical History Software Platform",
+  "description": "Multilingual AI-powered pre-consultation intake kiosk for Indian OPDs and AYUSH clinics, featuring voice and touch intake, medical prescription OCR, red-flag emergency triage, chronological medical timeline, and physician-ready clinical summaries.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
