@@ -601,7 +601,13 @@ Dr. Ananya Sen, MD (Endocrinology)`;
       clearTimeout(step3Timer);
       clearTimeout(step4Timer);
 
-      const data = await response.json();
+      let data: any = null;
+      try {
+        const text = await response.text();
+        data = JSON.parse(text);
+      } catch (e) {
+        console.warn('Non-JSON response from OCR AI endpoint:', e);
+      }
 
       if (data?.success && data?.extractedData) {
         const ext = data.extractedData;
@@ -788,7 +794,13 @@ Dr. Ananya Sen, MD (Endocrinology)`;
           patientLanguage: (language as SupportedLanguage) || currentPatient.language || 'en'
         })
       });
-      const data = await res.json();
+      let data: any = null;
+      try {
+        const text = await res.text();
+        data = JSON.parse(text);
+      } catch (e) {
+        console.warn('Non-JSON response from structure-ocr-text:', e);
+      }
       if (data?.success && data?.extractedData) {
         const ext = data.extractedData;
         setVerificationStatus('verified');

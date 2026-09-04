@@ -35,27 +35,41 @@ export default async function handler(req: IncomingMessage & { body?: any; metho
 
     // Prepare image payload(s) for Gemini multimodal
     const imageParts: any[] = [];
+    const processImageItem = async (rawData: any, itemMime?: string) => {
+      if (!rawData || typeof rawData !== 'string') return;
+      let cleanBase64 = '';
+      let effectiveMime = itemMime || mimeType || 'image/jpeg';
+      if (rawData.startsWith('http://') || rawData.startsWith('https://')) {
+        try {
+          const fetchRes = await fetch(rawData);
+          if (fetchRes.ok) {
+            const buf = await fetchRes.arrayBuffer();
+            cleanBase64 = Buffer.from(buf).toString('base64');
+            const ct = fetchRes.headers.get('content-type');
+            if (ct) effectiveMime = ct;
+          }
+        } catch (e) {
+          console.warn('[ocr-ai-scan] Could not fetch remote image URL:', e);
+        }
+      } else {
+        cleanBase64 = rawData.replace(/^data:[^;]+;base64,/, '').trim();
+      }
+      if (cleanBase64) {
+        imageParts.push({
+          inlineData: {
+            data: cleanBase64,
+            mimeType: effectiveMime
+          }
+        });
+      }
+    };
+
     if (Array.isArray(images) && images.length > 0) {
-      images.forEach((img: any) => {
-        const rawData = (img.data || img);
-        if (typeof rawData === 'string' && !rawData.startsWith('http')) {
-          const cleanBase64 = rawData.replace(/^data:image\/[a-z]+;base64,/, '').replace(/^data:application\/pdf;base64,/, '');
-          imageParts.push({
-            inlineData: {
-              data: cleanBase64,
-              mimeType: img.mimeType || mimeType || 'image/jpeg'
-            }
-          });
-        }
-      });
-    } else if (imageBase64 && typeof imageBase64 === 'string' && !imageBase64.startsWith('http')) {
-      const cleanBase64 = imageBase64.replace(/^data:image\/[a-z]+;base64,/, '').replace(/^data:application\/pdf;base64,/, '');
-      imageParts.push({
-        inlineData: {
-          data: cleanBase64,
-          mimeType: mimeType || 'image/jpeg'
-        }
-      });
+      for (const img of images) {
+        await processImageItem(img.data || img, img.mimeType);
+      }
+    } else if (imageBase64) {
+      await processImageItem(imageBase64, mimeType);
     }
 
     const prescriptionPrompt = `You are the specialized Clinical Prescription OCR & Pharmacological Structuring Engine for MediKiosk AI in Indian Hospital OPDs.
@@ -134,9 +148,19 @@ Output format MUST be strictly valid JSON matching this exact structure:
       }
     }
 
-    // Deterministic fallback if Gemini was unavailable or returned empty
-    if (!parsed || !parsed.doctorName || (!parsed.medications?.length && !parsed.ocrText)) {
-      parsed = parsePrescriptionDeterministic(ocrText, patientName);
+    // Deterministic fallback ONLY if Gemini returned nothing or completely unparseable
+    if (!parsed || typeof parsed !== 'object' || (!parsed.medications?.length && !parsed.ocrText)) {
+      const fallbackResult = parsePrescriptionDeterministic(ocrText, patientName);
+      if (!parsed || typeof parsed !== 'object') {
+        parsed = fallbackResult;
+      } else {
+        // Retain any fields Gemini did detect, fill in missing parts
+        if (!parsed.doctorName || parsed.doctorName === 'Not detected') parsed.doctorName = fallbackResult.doctorName;
+        if (!parsed.hospitalName || parsed.hospitalName === 'Not detected') parsed.hospitalName = fallbackResult.hospitalName;
+        if (!parsed.prescriptionDate || parsed.prescriptionDate === 'Not detected') parsed.prescriptionDate = fallbackResult.prescriptionDate;
+        if (!parsed.medications?.length) parsed.medications = fallbackResult.medications;
+        if (!parsed.ocrText) parsed.ocrText = fallbackResult.ocrText;
+      }
     }
 
     if (Array.isArray(parsed.medications) && parsed.medications.length > 0) {

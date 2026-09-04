@@ -60,21 +60,14 @@ export interface StaffLoginResponse {
 }
 
 async function safelyParseResponse<T>(res: Response, fallbackError: string): Promise<T> {
-  const contentType = res.headers.get('content-type') || '';
-  if (contentType.includes('application/json')) {
-    try {
-      const data = await res.json();
-      return data;
-    } catch {
-      // JSON parse error, fall through to safe text handling
-    }
-  }
-
   let text = '';
   try {
     text = await res.text();
-  } catch {
-    text = '';
+  } catch (err: any) {
+    return {
+      success: false,
+      error: fallbackError || err?.message || 'Failed to read response from server.'
+    } as unknown as T;
   }
 
   const trimmed = text.trim();
@@ -82,7 +75,7 @@ async function safelyParseResponse<T>(res: Response, fallbackError: string): Pro
     try {
       return JSON.parse(trimmed);
     } catch {
-      // ignore
+      // JSON syntax error in body, fall through to status handler
     }
   }
 
@@ -96,7 +89,7 @@ async function safelyParseResponse<T>(res: Response, fallbackError: string): Pro
   if (res.status === 404) {
     return {
       success: false,
-      error: 'Authentication route not found (404). Please ensure the API is reachable.'
+      error: 'Authentication route or service endpoint not found (404). Please ensure the API is reachable.'
     } as unknown as T;
   }
 
@@ -179,8 +172,7 @@ export async function createStaffMember(payload: {
       headers: getAdminHeaders(),
       body: JSON.stringify(payload)
     });
-    const data = await res.json();
-    return data;
+    return await safelyParseResponse(res, 'Failed to create staff member');
   } catch (err: any) {
     return { success: false, error: err.message };
   }
@@ -192,8 +184,7 @@ export async function syncStaffBatchToSupabase(): Promise<{ success: boolean; co
       method: 'POST',
       headers: getAdminHeaders()
     });
-    const data = await res.json();
-    return data;
+    return await safelyParseResponse(res, 'Failed to sync staff to Supabase');
   } catch (err: any) {
     return { success: false, error: err.message || 'Failed to sync staff to Supabase' };
   }
@@ -209,8 +200,7 @@ export async function getSupabaseBackendStatus(): Promise<{
 }> {
   try {
     const res = await fetch('/api/admin/supabase-status');
-    const data = await res.json();
-    return data;
+    return await safelyParseResponse(res, 'Failed to get Supabase status');
   } catch (err: any) {
     return { connected: false, error: err.message };
   }
@@ -226,7 +216,7 @@ export async function updateStaffMember(
       headers: getAdminHeaders(),
       body: JSON.stringify(payload)
     });
-    const data = await res.json();
+    const data = await safelyParseResponse<any>(res, 'Failed to update staff member');
     if (data.success && data.staff) {
       try {
         const cached = localStorage.getItem('medikiosk_cached_staff_list');
@@ -254,8 +244,7 @@ export async function resetStaffPin(
       headers: getAdminHeaders(),
       body: JSON.stringify({ staffId, newPin, resetToStaffId })
     });
-    const data = await res.json();
-    return data;
+    return await safelyParseResponse(res, 'Failed to reset staff PIN');
   } catch (err: any) {
     return { success: false, error: err.message };
   }
@@ -294,8 +283,7 @@ export async function changeStaffStatus(
       headers: getAdminHeaders(),
       body: JSON.stringify({ staffId, status, reason })
     });
-    const data = await res.json();
-    return data;
+    return await safelyParseResponse(res, 'Failed to change staff status');
   } catch (err: any) {
     return { success: false, error: err.message };
   }
@@ -315,7 +303,7 @@ export async function fetchAuditLogs(filter?: {
     const res = await fetch(`/api/admin/audit-logs?${params.toString()}`, {
       headers: getAdminHeaders()
     });
-    const data = await res.json();
+    const data = await safelyParseResponse<any>(res, 'Failed to fetch audit logs');
     if (data.success) {
       return { success: true, logs: data.logs || [] };
     }
@@ -339,8 +327,7 @@ export async function logAdminAuditEvent(payload: {
       headers: getAdminHeaders(),
       body: JSON.stringify(payload)
     });
-    const data = await res.json();
-    return data;
+    return await safelyParseResponse(res, 'Failed to log audit event');
   } catch (err: any) {
     return { success: false, error: err.message };
   }
@@ -351,8 +338,7 @@ export async function fetchAdminMetrics(): Promise<{ success: boolean; metrics?:
     const res = await fetch('/api/admin/metrics', {
       headers: getAdminHeaders()
     });
-    const data = await res.json();
-    return data;
+    return await safelyParseResponse(res, 'Failed to fetch admin metrics');
   } catch (err: any) {
     return { success: false, error: err.message };
   }
@@ -368,8 +354,7 @@ export async function changeMasterAdminPin(
       headers: getAdminHeaders(),
       body: JSON.stringify({ currentPin, newPin })
     });
-    const data = await res.json();
-    return data;
+    return await safelyParseResponse(res, 'Failed to change admin PIN');
   } catch (err: any) {
     return { success: false, error: err.message };
   }
@@ -380,8 +365,7 @@ export async function fetchHospitalConfig(): Promise<{ success: boolean; config?
     const res = await fetch('/api/admin/hospital-config', {
       headers: getAdminHeaders()
     });
-    const data = await res.json();
-    return data;
+    return await safelyParseResponse(res, 'Failed to fetch hospital config');
   } catch (err: any) {
     return { success: false, error: err.message };
   }
@@ -396,8 +380,7 @@ export async function updateHospitalConfig(
       headers: getAdminHeaders(),
       body: JSON.stringify(config)
     });
-    const data = await res.json();
-    return data;
+    return await safelyParseResponse(res, 'Failed to update hospital config');
   } catch (err: any) {
     return { success: false, error: err.message };
   }
@@ -413,7 +396,7 @@ export async function fetchOpdAppointments(): Promise<{
     const res = await fetch('/api/admin/appointments', {
       headers: getAdminHeaders()
     });
-    const data = await res.json();
+    const data = await safelyParseResponse<any>(res, 'Failed to fetch appointments');
     if (data.success) {
       return { success: true, appointments: data.appointments || [] };
     }
@@ -434,8 +417,7 @@ export async function reassignOpdAppointment(
       headers: getAdminHeaders(),
       body: JSON.stringify({ appointmentId, newDoctorStaffId, newDoctorName })
     });
-    const data = await res.json();
-    return data;
+    return await safelyParseResponse(res, 'Failed to reassign appointment');
   } catch (err: any) {
     return { success: false, error: err.message };
   }
@@ -451,8 +433,7 @@ export async function cancelOpdAppointment(
       headers: getAdminHeaders(),
       body: JSON.stringify({ appointmentId, reason })
     });
-    const data = await res.json();
-    return data;
+    return await safelyParseResponse(res, 'Failed to cancel appointment');
   } catch (err: any) {
     return { success: false, error: err.message };
   }

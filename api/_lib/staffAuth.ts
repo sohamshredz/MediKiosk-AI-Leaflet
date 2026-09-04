@@ -192,7 +192,33 @@ export const DEFAULT_HOSPITAL_STAFF: ServerStaffMember[] = [
   }
 ];
 
-export function findStaffMember(searchCode: string, staffList: ServerStaffMember[] = DEFAULT_HOSPITAL_STAFF): ServerStaffMember | undefined {
+export function getStaffList(): ServerStaffMember[] {
+  try {
+    // Dynamic load fs/path so it runs seamlessly in both Node server and serverless environments
+    const fs = require('fs');
+    const path = require('path');
+    const filePath = path.join(process.cwd(), 'data', 'hospital_staff_store.json');
+    if (fs.existsSync(filePath)) {
+      const data = fs.readFileSync(filePath, 'utf-8');
+      const parsed = JSON.parse(data);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        const existingIds = new Set(parsed.map((p: any) => (p.staffId || '').toUpperCase()));
+        const merged = [...parsed];
+        for (const def of DEFAULT_HOSPITAL_STAFF) {
+          if (!existingIds.has(def.staffId.toUpperCase())) {
+            merged.push(def);
+          }
+        }
+        return merged;
+      }
+    }
+  } catch (err) {
+    // Fall back gracefully to DEFAULT_HOSPITAL_STAFF
+  }
+  return DEFAULT_HOSPITAL_STAFF;
+}
+
+export function findStaffMember(searchCode: string, staffList: ServerStaffMember[] = getStaffList()): ServerStaffMember | undefined {
   const clean = (searchCode || '').trim().toUpperCase();
   if (!clean) return undefined;
   return staffList.find(s => 
@@ -200,7 +226,15 @@ export function findStaffMember(searchCode: string, staffList: ServerStaffMember
     (s.employeeCode && s.employeeCode.toUpperCase() === clean) ||
     (s.email && s.email.toUpperCase() === clean) ||
     (s.fullName && s.fullName.toUpperCase().includes(clean)) ||
-    (clean.includes('SOHOM') && s.staffId === 'DOC-SOHOM-01')
+    (clean.includes('SOHOM') && s.staffId === 'DOC-SOHOM-01') ||
+    ((clean === 'DOC-01' || clean === 'DOC-1' || clean === 'DOC01' || clean === 'DR-01' || clean === 'DOC-SOHOM') && s.staffId === 'DOC-SOHOM-01') ||
+    ((clean === 'DOC-02' || clean === 'DOC-2' || clean === 'DOC02' || clean === 'DR-02' || clean === 'DOC-SUNITA') && s.staffId === 'DOC-SUNITA-02') ||
+    ((clean === 'DOC-04' || clean === 'DOC-4' || clean === 'DOC04' || clean === 'DR-04' || clean === 'DOC-AIIMS') && s.staffId === 'DOC-AIIMS-04') ||
+    ((clean === 'DOC-12' || clean === 'DOC-CARDIO') && s.staffId === 'DOC-CARDIO-12') ||
+    ((clean === 'NURSE-1' || clean === 'NURSE01') && s.staffId === 'NURSE-01') ||
+    ((clean === 'NURSE-2' || clean === 'NURSE02') && s.staffId === 'NURSE-02') ||
+    ((clean === 'MO-01' || clean === 'MO-1' || clean === 'MO-09') && s.staffId === 'MO-DELHI-09') ||
+    ((clean === 'CMO-01' || clean === 'CMO-1' || clean === 'CMO') && s.staffId === 'CMO-RAJESH-01')
   );
 }
 

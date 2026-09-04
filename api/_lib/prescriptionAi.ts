@@ -22,15 +22,15 @@ export function getGeminiClient(): GoogleGenAI | null {
 export async function callGeminiWithTimeoutAndFallback(
   ai: GoogleGenAI,
   params: any,
-  modelsToTry: string[] = ['gemini-3.1-flash-lite', 'gemini-flash-latest', 'gemini-3.8-flash']
+  modelsToTry: string[] = ['gemini-3.6-flash', 'gemini-3.1-flash-lite', 'gemini-flash-latest', 'gemini-3.8-flash']
 ): Promise<any> {
   let lastError: any = null;
 
   for (const model of modelsToTry) {
     try {
-      // Per-model attempt timeout of 9 seconds so fallback happens swiftly
+      // Per-model attempt timeout of 25 seconds for multimodal vision processing
       const timeoutPromise = new Promise((_, reject) => {
-        setTimeout(() => reject(new Error(`Timeout on model ${model} after 9000ms`)), 9000);
+        setTimeout(() => reject(new Error(`Timeout on model ${model} after 25000ms`)), 25000);
       });
 
       const response = await Promise.race([

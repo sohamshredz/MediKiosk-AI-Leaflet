@@ -104,8 +104,17 @@ Output format MUST be strictly JSON matching this structure:
       }
     }
 
-    if (!parsed || !parsed.doctorName || (!parsed.medications?.length && !parsed.ocrText)) {
-      parsed = parsePrescriptionDeterministic(ocrText, patientName);
+    if (!parsed || typeof parsed !== 'object' || (!parsed.medications?.length && !parsed.ocrText)) {
+      const fallbackResult = parsePrescriptionDeterministic(ocrText, patientName);
+      if (!parsed || typeof parsed !== 'object') {
+        parsed = fallbackResult;
+      } else {
+        if (!parsed.doctorName || parsed.doctorName === 'Not detected') parsed.doctorName = fallbackResult.doctorName;
+        if (!parsed.hospitalName || parsed.hospitalName === 'Not detected') parsed.hospitalName = fallbackResult.hospitalName;
+        if (!parsed.prescriptionDate || parsed.prescriptionDate === 'Not detected') parsed.prescriptionDate = fallbackResult.prescriptionDate;
+        if (!parsed.medications?.length) parsed.medications = fallbackResult.medications;
+        if (!parsed.ocrText) parsed.ocrText = fallbackResult.ocrText;
+      }
     }
 
     if (Array.isArray(parsed.medications)) {

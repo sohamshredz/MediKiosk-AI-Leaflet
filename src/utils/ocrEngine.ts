@@ -104,7 +104,7 @@ export async function runFullPrescriptionOcrPipeline(
 
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 30000);
+    const timeoutId = setTimeout(() => controller.abort(), 35000);
 
     const response = await fetch('/api/prescriptions/ocr-ai-scan', {
       method: 'POST',
@@ -122,15 +122,23 @@ export async function runFullPrescriptionOcrPipeline(
     clearTimeout(timeoutId);
 
     if (response.ok) {
-      const data = await response.json();
-      if (data?.success && data?.extractedData) {
-        serverResponseData = data.extractedData;
+      try {
+        const text = await response.text();
+        const data = JSON.parse(text);
+        if (data?.success && data?.extractedData) {
+          serverResponseData = data.extractedData;
+        } else {
+          serverOcrFailed = true;
+        }
+      } catch (parseErr) {
+        console.warn('[OcrEngine] Non-JSON response from OCR server:', parseErr);
+        serverOcrFailed = true;
       }
     } else {
       serverOcrFailed = true;
     }
   } catch (err: any) {
-    console.warn('[OcrEngine] Server multimodal OCR request failed, switching to Level 2 pipeline:', err?.message || err);
+    console.warn('[OcrEngine] Server multimodal OCR request notice:', err?.message || err);
     serverOcrFailed = true;
   }
 
