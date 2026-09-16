@@ -143,4 +143,4 @@ Event: Smart India Hackathon (SIH)
 
 ⭐ Vision
 
-"Faster, smarter, accessible and digital patient histor
+"Faster, smarter, accessible and digital patient history"
