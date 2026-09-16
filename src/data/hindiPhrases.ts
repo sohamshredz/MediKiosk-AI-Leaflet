@@ -1,0 +1,696 @@
+/**
+ * Comprehensive Hindi Translation Dictionary & Normalizer
+ * Contains exhaustive translations for all user-facing UI elements across MediKiosk AI.
+ */
+
+export const HINDI_PHRASES: Record<string, string> = {
+  // Brand & Platform Names
+  'MediKiosk AI': 'मेडीकियोस्क AI',
+  'MediKiosk': 'मेडीकियोस्क',
+  'Clinical History Software Platform': 'क्लिनिकल हिस्ट्री सॉफ्टवेयर प्लेटफॉर्म',
+  'AI-Powered Clinical History & Pre-Consultation Platform': 'AI-संचालित क्लिनिकल हिस्ट्री एवं प्री-परामर्श मंच',
+  'Hospital OPD System': 'अस्पताल ओपीडी प्रणाली',
+  'Hospital Management System': 'अस्पताल प्रबंधन प्रणाली',
+
+  // Navigation & Header
+  'Home': 'मुख्य पृष्ठ',
+  'Smart Kiosk': 'स्मार्ट कियोस्क',
+  'Hospital Map': 'अस्पताल का नक्शा',
+  'Standards': 'मानक एवं अनुपालन',
+  'Workflow': 'कार्यप्रवाह',
+  'Sign In': 'साइन इन',
+  'Patient Login': 'रोगी लॉगिन',
+  'Doctor / Staff Login': 'डॉक्टर / स्टाफ लॉगिन',
+  'Doctor OPD Station': 'डॉक्टर ओपीडी स्टेशन',
+  'Doctor Station': 'डॉक्टर स्टेशन',
+  'Emergency Triage': 'आपातकालीन ट्राइएज',
+  'Triage & Vitals Desk': 'ट्राइएज एवं वाइटल्स डेस्क',
+  'Staff Triage Dashboard': 'स्टाफ ट्राइएज डैशबोर्ड',
+  'Doctor OPD Console': 'डॉक्टर ओपीडी कंसोल',
+  'Hospital Emergency Map': 'अस्पताल आपातकालीन नक्शा',
+  'Hospital Locator & SOS': 'अस्पताल खोजक एवं एसओएस',
+  'Gemini AI Assistant': 'जेमिनी AI सहायक',
+  'Gemini Health Assistant': 'जेमिनी स्वास्थ्य सहायक',
+  'Gemini Medical Assistant': 'जेमिनी चिकित्सा सहायक',
+  'My Patient Dashboard': 'मेरा रोगी डैशबोर्ड',
+  'Personal Records & Prescriptions': 'व्यक्तिगत रिकॉर्ड एवं पर्चे',
+  'Start New Consultation': 'नया परामर्श शुरू करें',
+  'AI Pre-Consultation Intake': 'AI प्री-परामर्श इंटेक',
+  'Hospital Map & SOS': 'अस्पताल का नक्शा एवं एसओएस',
+  'OPD Rooms & Emergency Route': 'ओपीडी कक्ष एवं आपातकालीन मार्ग',
+  'Multilingual Clinical QA': 'बहुभाषी क्लिनिकल प्रश्नोत्तरी',
+  'Queue, Dossiers & e-Prescriptions': 'कतार, डोजियर एवं ई-पर्चे',
+  'Emergency Triage Live': 'लाइव आपातकालीन ट्राइएज',
+  'Critical Red Flags & Vitals': 'गंभीर चेतावनी एवं वाइटल्स',
+  'Clinical Guidelines & CDS': 'क्लिनिकल दिशानिर्देश एवं सीडीएस',
+  'Live OPD Queue & Triage Desk': 'लाइव ओपीडी कतार एवं ट्राइएज डेस्क',
+  'Doctor Station Preview': 'डॉक्टर स्टेशन पूर्वावलोकन',
+  'Bed Tracking & SOS': 'बेड ट्रैकिंग एवं एसओएस',
+  'Hospital Home & Gateways': 'अस्पताल मुख्य पृष्ठ एवं प्रवेश द्वार',
+  'Public Entry & Information': 'सार्वजनिक प्रवेश एवं जानकारी',
+  'Smart Kiosk Mode': 'स्मार्ट कियोस्क मोड',
+  'Voice & Touch Multilingual Intake': 'आवाज एवं स्पर्श द्वारा बहुभाषी इंटेक',
+  'Patient Portal Sign In': 'रोगी पोर्टल साइन इन',
+  'Access My Medical Records': 'मेरे मेडिकल रिकॉर्ड देखें',
+  'Live GPS, SOS & Bed Tracking': 'लाइव जीपीएस, एसओएस एवं बेड ट्रैकिंग',
+  'Clinical QA & Translation': 'क्लिनिकल सहायता एवं अनुवाद',
+  'Patient Services': 'रोगी सेवाएं',
+  'Physician Station': 'चिकित्सक स्टेशन',
+  'Staff & Triage Station': 'स्टाफ एवं ट्राइएज स्टेशन',
+  'MediKiosk Portals': 'मेडीकियोस्क पोर्टल',
+  'Standards & Compliance': 'मानक एवं अनुपालन',
+  'Language ≠ Identity': 'भाषा ≠ रोगी पहचान',
+  'ABDM & DPDP Compliance': 'ABDM एवं DPDP अनुपालन',
+  'Supabase SQL & Sync Status': 'सुपाबेस एसक्यूएल एवं सिंक स्थिति',
+  'Data Auto-Saved': 'डेटा स्वतः सहेजा गया',
+  'Logout': 'लॉग आउट',
+  'Switch / Log Out': 'बदलें / लॉग आउट',
+  'Reset Data': 'डेटा रीसेट करें',
+
+  // Landing & Hero
+  'Pre-Consultation Clinical Intake & Triage': 'प्री-परामर्श क्लिनिकल इंटेक एवं ट्राइएज',
+  'Hospital Campus': 'अस्पताल परिसर',
+  'Specialist OPD': 'विशेषज्ञ ओपीडी',
+  'Clinical Telemetry': 'क्लिनिकल टेलीमेट्री',
+  'Smart Kiosk AI': 'स्मार्ट कियोस्क AI',
+  'Capture your medical history, digitize existing health records, and prepare a clinician-ready history before consultation.': 'परामर्श से पहले अपना चिकित्सीय इतिहास दर्ज करें, पुराने स्वास्थ्य रिकॉर्ड को डिजिटाइज़ करें और डॉक्टर के लिए तैयार इतिहास बनाएं।',
+  'Access your secure patient portal': 'अपने सुरक्षित रोगी पोर्टल तक पहुँचें',
+  'Conversational Clinical History': 'बोलचाल आधारित चिकित्सीय इतिहास',
+  'Medical Document OCR Digitization': 'मेडिकल दस्तावेज़ OCR डिजिटलीकरण',
+  'HIS & ABHA Health Locker Link': 'HIS एवं ABHA हेल्थ लॉकर लिंक',
+  'Hospital Infrastructure & Technology': 'अस्पताल अवसंरचना एवं प्रौद्योगिकी',
+  'Smart Hospital Ecosystem & Clinical Facilities': 'स्मार्ट अस्पताल इकोसिस्टम एवं क्लिनिकल सुविधाएं',
+  'View Hospital Map': 'अस्पताल का नक्शा देखें',
+  'Find Nearby Clinics': 'निकटतम क्लीनिक खोजें',
+  'Find Nearby Clinics & Ayush Centers': 'निकटतम क्लीनिक एवं आयुष केंद्र खोजें',
+  'Call Emergency Ambulance': 'आपातकालीन एम्बुलेंस बुलाएं',
+  'Call Ambulance (108)': 'एम्बुलेंस बुलाएं (108)',
+  'Find by Voice': 'आवाज से खोजें',
+  'Voice Intake': 'वॉइस इंटेक',
+  'For Patients': 'रोगियों के लिए',
+  'For Patients Subtitle': 'अपने मेडिकल रिकॉर्ड, अपॉइंटमेंट, पर्चे और बहुभाषी AI परामर्श तक पहुँचें।',
+  'For Doctors & Staff': 'डॉक्टरों एवं स्टाफ के लिए',
+  'For Doctors Subtitle': 'अपॉइंटमेंट प्रबंधित करें, रोगी इतिहास की समीक्षा करें और आपातकालीन अलर्ट संभालें।',
+  'ROLE: PATIENT': 'भूमिका: रोगी',
+  'ROLE: DOCTOR / CLINICAL STAFF': 'भूमिका: डॉक्टर / क्लिनिकल स्टाफ',
+  'Ayushman Bharat Digital Mission (ABDM) Certified OPD HIS': 'आयुष्मान भारत डिजिटल मिशन (ABDM) प्रमाणित ओपीडी प्रणाली',
+  'HL7 FHIR R4 • DPDP Act 2023 Compliant': 'HL7 FHIR R4 • DPDP अधिनियम 2023 अनुपालित',
+  'View ABDM Architecture': 'ABDM संरचना देखें',
+  'Intake Workflow Guide': 'इंटेक कार्यप्रवाह मार्गदर्शिका',
+  'Emergency SOS': 'आपातकालीन एसओएस (SOS)',
+  'Immediate Critical Care & Ambulance Dispatch': 'तत्काल आपातकालीन देखभाल एवं एम्बुलेंस प्रेषण',
+  'If you or someone nearby is experiencing acute chest pain, severe breathlessness, stroke symptoms or trauma, request immediate ambulance dispatch.': 'यदि आपको या पास के किसी व्यक्ति को सीने में तेज दर्द, सांस लेने में तकलीफ, स्ट्रोक या गंभीर चोट है, तो तुरंत एम्बुलेंस का अनुरोध करें।',
+  'Book Appointment': 'अपॉइंटमेंट बुक करें',
+  'Book OPD Token': 'ओपीडी टोकन बुक करें',
+
+  // Hospital Map & Locator
+  'Hospital & Emergency Locator': 'अस्पताल एवं आपातकालीन लोकेटर',
+  'Location detected': 'स्थान का पता लगाया गया',
+  'Manual Search Area': 'मैनुअल खोज क्षेत्र',
+  'GPS accuracy': 'जीपीएस सटीकता',
+  'Updated': 'अपडेट किया गया',
+  'Refresh Location': 'स्थान रीफ्रेश करें',
+  'Locate Me': 'मेरा स्थान खोजें',
+  'Locating...': 'स्थान खोजा जा रहा है...',
+  'SOS Ambulance': 'आपातकालीन एम्बुलेंस (SOS)',
+  'Search city, area, or hospital name...': 'शहर, क्षेत्र या अस्पताल का नाम खोजें...',
+  'Find': 'खोजें',
+  'All Facilities': 'सभी सुविधाएं',
+  'Hospitals': 'अस्पताल',
+  'Clinics & PHCs': 'क्लीनिक एवं पीएचसी',
+  'Search Radius:': 'खोज दायरा:',
+  'Search Radius': 'खोज दायरा',
+  '5 km': '5 किमी',
+  '25 km': '25 किमी',
+  '50 km': '50 किमी',
+  '75 km': '75 किमी',
+  'OpenStreetMap:': 'ओपनस्ट्रीटमैप:',
+  'Diagnostics': 'डायग्नोस्टिक्स',
+  'Hide Info': 'जानकारी छिपाएं',
+  'PIPELINE DIAGNOSTICS': 'पाइपलाइन डायग्नोस्टिक्स',
+  'REAL DATA STREAM': 'रीयल डेटा स्ट्रीम',
+  'GPS Position:': 'जीपीएस स्थिति:',
+  'Active Provider:': 'सक्रिय प्रदाता:',
+  'Facilities Loaded:': 'लोड की गई सुविधाएं:',
+  'Error Status:': 'त्रुटि स्थिति:',
+  'Route to': 'मार्ग',
+  'Calculating road route & ETA...': 'सड़क मार्ग एवं पहुंचने के समय की गणना हो रही है...',
+  'Route ready': 'मार्ग तैयार है',
+  'ETA': 'पहुंचने का समय',
+  'Mode:': 'साधन:',
+  'Ambulance': 'एम्बुलेंस',
+  'Car': 'कार / वाहन',
+  'Drive': 'गाड़ी',
+  'Walk': 'पैदल',
+  'Transit': 'बस / ट्रेन',
+  'Routing Active': 'मार्ग सक्रिय',
+  'Clear active route': 'सक्रिय मार्ग हटाएं',
+  'Refresh live route': 'लाइव मार्ग रीफ्रेश करें',
+  'Emergency capability': 'आपातकालीन सुविधा उपलब्ध',
+  'Verified Hospital': 'सत्यापित अस्पताल',
+  'Government Hospital': 'सरकारी अस्पताल',
+  'Private Hospital': 'निजी अस्पताल',
+  'Medical College': 'मेडिकल कॉलेज एवं अस्पताल',
+  'Primary Health Centre (PHC)': 'प्राथमिक स्वास्थ्य केंद्र (PHC)',
+  'Community Health Centre (CHC)': 'सामुदायिक स्वास्थ्य केंद्र (CHC)',
+  'Sub-District Hospital': 'उप-जिला अस्पताल',
+  'District Hospital': 'जिला अस्पताल',
+  'Dispensary': 'औषधालय',
+  'Ayush Hospital': 'आयुष अस्पताल',
+  'Homeopathy Clinic': 'होम्योपैथी क्लिनिक',
+  'Ayurvedic Clinic': 'आयुर्वेदिक क्लिनिक',
+  'Bed Availability': 'उपलब्ध बिस्तर',
+  'Available': 'उपलब्ध',
+  'Occupied': 'व्यस्त',
+  'Directions': 'दिशा-निर्देश',
+  'Get Directions': 'दिशा-निर्देश प्राप्त करें',
+  'Call Hospital': 'अस्पताल को कॉल करें',
+  'Book Token': 'टोकन बुक करें',
+  'Select Department': 'विभाग चुनें',
+  'Patient Legal Name': 'रोगी का कानूनी नाम',
+  'Phone Number': 'फोन नंबर',
+  'Select Time Slot': 'समय स्लॉट चुनें',
+  'Confirm OPD Token': 'ओपीडी टोकन की पुष्टि करें',
+  'Token Booked Successfully': 'टोकन सफलतापूर्वक बुक हो गया',
+  'Default map view — location not yet detected': 'डिफ़ॉल्ट नक्शा — आपके स्थान का अभी पता नहीं चला है',
+  'To show verified hospitals nearest to you, use your device GPS or search an area.': 'निकटतम सत्यापित अस्पतालों को देखने के लिए डिवाइस जीपीएस ऑन करें या क्षेत्र खोजें।',
+  'Find My Location': 'मेरा स्थान खोजें',
+  'Voice Search': 'आवाज से खोजें',
+  'Refresh GPS': 'जीपीएस रीफ्रेश करें',
+  'Try Again': 'पुनः प्रयास करें',
+  'Search Hospital Manually': 'अस्पताल मैन्युअल रूप से खोजें',
+  'Your location accuracy is low': 'आपकी स्थान सटीकता कम है',
+  'Move to an open area and try again.': 'खुले क्षेत्र में जाएं और पुनः प्रयास करें।',
+
+  // Smart Kiosk & Pre-Consultation Intake
+  'Identification & Consent': 'पहचान एवं सहमति',
+  'Care Stream': 'देखभाल धारा (केयर स्ट्रीम)',
+  'Voice & Touch Intake': 'आवाज एवं स्पर्श द्वारा इंटेक',
+  'AYUSH Assessment': 'आयुष मूल्यांकन',
+  'Medical Records OCR': 'चिकित्सीय रिकॉर्ड ओसीआर',
+  'Vitals & Triage': 'शारीरिक माप एवं ट्राइएज',
+  'Verification & Token': 'सत्यापन एवं टोकन',
+  'OPD Kiosk Progress:': 'ओपीडी कियोस्क प्रगति:',
+  'Back to Dashboard': 'डैशबोर्ड पर वापस जाएं',
+  'Resume on Phone': 'फोन पर पुनः शुरू करें',
+  'Auto-saving (5s debounce)...': 'स्वतः सहेजा जा रहा है...',
+  'Saved to Local Storage': 'स्थानीय मेमोरी में सहेजा गया',
+  'Unfinished Intake Draft Detected': 'अधूरा इंटेक ड्राफ्ट मिला',
+  'Start from Step 1': 'चरण 1 से शुरू करें',
+  'Welcome to Hospital OPD Intake Kiosk': 'अस्पताल ओपीडी इंटेक कियोस्क में आपका स्वागत है',
+  'Ayushman Bharat Digital Mission (ABDM) & DPDP Act 2023 Compliant Pre-Consultation System.': 'आयुष्मान भारत डिजिटल मिशन (ABDM) एवं DPDP अधिनियम 2023 अनुपालित प्री-परामर्श प्रणाली।',
+  'Current Patient Identity': 'वर्तमान रोगी पहचान',
+  'ABHA ID Verified': 'ABHA आईडी सत्यापित',
+  'Name': 'नाम',
+  'Age & Gender': 'आयु एवं लिंग',
+  'ABHA Health ID': 'ABHA स्वास्थ्य आईडी',
+  'Patient Informed Consent & Privacy Declaration': 'रोगी सूचित सहमति एवं गोपनीयता घोषणा',
+  'I consent to providing my medical history, symptoms, and previous prescriptions to MediKiosk AI. I understand that this information will be prepared as a structured clinical decision support summary for my consulting doctor and is encrypted according to Ayushman Bharat standards.': 'मैं मेडीकियोस्क AI को अपना चिकित्सीय इतिहास, लक्षण और पिछले नुस्खे प्रदान करने की सहमति देता/देती हूँ। मैं समझता/समझती हूँ कि यह जानकारी मेरे डॉक्टर के लिए एक संरचित क्लिनिकल सारांश के रूप में तैयार की जाएगी और आयुष्मान भारत मानकों के अनुसार एन्क्रिप्टेड है।',
+  'Voice Consent ("I Agree")': 'आवाज से सहमति ("मैं सहमत हूँ")',
+  'Touch Screen Agreement': 'टच स्क्रीन द्वारा सहमति',
+  'Prefer completing on your smartphone?': 'क्या आप अपने स्मार्टफोन पर पूरा करना पसंद करते हैं?',
+  'Scan a unique QR code to continue while waiting in the OPD lounge.': 'ओपीडी लाउंज में प्रतीक्षा करते समय जारी रखने के लिए क्यूआर कोड स्कैन करें।',
+  'Show QR Code': 'क्यूआर कोड दिखाएं',
+  'Select Your Consultation OPD Stream': 'अपना परामर्श ओपीडी विभाग चुनें',
+  'Choose the clinical department you are visiting today to tailor your pre-consultation intake.': 'अपने प्री-परामर्श को अनुकूलित करने के लिए आज जिस क्लिनिकल विभाग में जा रहे हैं उसे चुनें।',
+  'Modern Medicine (Allopathy)': 'आधुनिक चिकित्सा (एलोपैथी)',
+  'General Medicine, Cardiology, Pulmonology, Nephrology, Surgery & Pediatrics.': 'सामान्य चिकित्सा, हृदय रोग, फेफड़े, गुर्दे, सर्जरी एवं बाल रोग।',
+  'Standard Clinical Intake': 'मानक क्लिनिकल इंटेक',
+  'AYUSH & Ayurveda OPD': 'आयुष एवं आयुर्वेद ओपीडी',
+  'Kayachikitsa, Panchakarma, Shalya, Prakriti, Agni & Koshtha comprehensive assessment.': 'कायाचिकित्सा, पंचकर्म, शल्य, प्रकृति, अग्नि एवं कोष्ठ का विस्तृत मूल्यांकन।',
+  'Ayurvedic Intake Track': 'आयुर्वेदिक इंटेक ट्रैक',
+  'Integrated Care OPD': 'एकीकृत देखभाल ओपीडी (इंटीग्रेटेड)',
+  'Joint consultation bridging modern clinical diagnostics with holistic AYUSH protocols.': 'आधुनिक क्लिनिकल जांच और समग्र आयुष प्रोटोकॉल का संयुक्त परामर्श।',
+  'Combined Holistic Intake': 'संयुक्त समग्र इंटेक',
+  'Back to Language & Patient Selection': 'भाषा एवं रोगी चयन पर वापस जाएं',
+  'Patient Medical History Intake': 'रोगी चिकित्सीय इतिहास इंटेक',
+  'You can converse naturally via Voice AI or tap on the Anatomical Body Map.': 'आप वॉयस एआई के माध्यम से स्वाभाविक रूप से बात कर सकते हैं या शारीरिक बॉडी मैप पर स्पर्श कर सकते हैं।',
+  'Voice Conversation AI': 'वॉयस वार्तालाप AI',
+  'Touchscreen Body Map': 'टचस्क्रीन बॉडी मैप',
+  'Next: Scan Medical Reports': 'आगे: मेडिकल रिपोर्ट स्कैन करें',
+  'Next: AYUSH Assessment': 'आगे: आयुष मूल्यांकन',
+  'Back to History Intake': 'इतिहास इंटेक पर वापस जाएं',
+  'Next: Medical Document Scanner': 'आगे: मेडिकल दस्तावेज़ स्कैनर',
+  'Next: Kiosk Vitals & Triage': 'आगे: कियोस्क वाइटल्स एवं ट्राइएज',
+  'Back to Documents': 'दस्तावेज़ों पर वापस जाएं',
+  'Synthesizing Physician Summary with Gemini AI...': 'जेमिनी AI द्वारा डॉक्टर सारांश तैयार किया जा रहा है...',
+  'Verify Intake & Generate OPD Token': 'इंटेक सत्यापित करें एवं ओपीडी टोकन बनाएं',
+  'Pre-Consultation Kiosk': 'प्री-परामर्श कियोस्क',
+  'Patient Demographics': 'रोगी जनसांख्यिकी',
+  'Chief Complaints': 'मुख्य शिकायतें एवं लक्षण',
+  'Body Map': 'बॉडी मैप (दर्द का स्थान)',
+  'Medical History': 'चिकित्सीय इतिहास',
+  'Vital Signs': 'शारीरिक माप (वाइटल्स)',
+  'Document Scanner': 'दस्तावेज़ स्कैनर',
+  'Verification Slip': 'सत्यापन पर्ची',
+  'Step': 'चरण',
+  'of': 'का',
+  'Next Step': 'अगला चरण',
+  'Previous Step': 'पिछला चरण',
+  'Save & Continue': 'सहेजें एवं जारी रखें',
+  'Finish Intake': 'परामर्श इंटेक पूरा करें',
+  'Print Verification Slip': 'सत्यापन पर्ची प्रिंट करें',
+  'Scan Prescription / Records': 'पर्चा / मेडिकल रिकॉर्ड स्कैन करें',
+  'Touch to Start': 'शुरू करने के लिए स्पर्श करें',
+  'Select Gender': 'लिंग चुनें',
+  'Male': 'पुरुष',
+  'Female': 'महिला',
+  'Other': 'अन्य',
+  'Age': 'आयु',
+  'Years': 'वर्ष',
+  'Blood Group': 'रक्त समूह',
+  'Weight (kg)': 'वजन (किग्रा)',
+  'Height (cm)': 'ऊंचाई (सेमी)',
+  'Blood Pressure': 'रक्तचाप (बीपी)',
+  'Systolic': 'सिस्टोलिक',
+  'Diastolic': 'डायस्टोलिक',
+  'Heart Rate': 'हृदय गति (पल्स)',
+  'bpm': 'धड़कन/मिनट',
+  'Pulse': 'पल्स',
+  'Oxygen Saturation (SpO2)': 'ऑक्सीजन स्तर (SpO2)',
+  'Body Temperature': 'शरीर का तापमान',
+  'Blood Sugar': 'रक्त शर्करा (शुगर)',
+  'mg/dL': 'मिग्रा/डीएल',
+  'Respiratory Rate': 'श्वसन दर',
+  'breaths/min': 'सांसें/मिनट',
+  'BMI': 'बीएमआई (BMI)',
+  'Normal': 'सामान्य',
+  'Mild': 'हल्का',
+  'Moderate': 'मध्यम',
+  'Severe': 'गंभीर',
+  'Critical': 'अत्यंत गंभीर',
+  'Pain Severity': 'दर्द की तीव्रता',
+  'Duration': 'अवधि',
+  'Days': 'दिन',
+  'Weeks': 'सप्ताह',
+  'Months': 'महीने',
+  'Head': 'सिर',
+  'Chest': 'छाती',
+  'Abdomen': 'पेट',
+  'Back': 'पीठ',
+  'Arms': 'हाथ / बांह',
+  'Legs': 'पैर',
+  'Throat': 'गला',
+  'Eyes': 'आंखें',
+  'Ears': 'कान',
+  'Skin': 'त्वचा',
+  'Joints': 'जोड़',
+  'Fever': 'बुखार',
+  'Cough': 'खांसी',
+  'Cold': 'जुकाम',
+  'Headache': 'सिरदर्द',
+  'Body Ache': 'बदन दर्द',
+  'Vomiting': 'उल्टी',
+  'Diarrhea': 'दस्त',
+  'Fatigue': 'थकान',
+  'Dizziness': 'चक्कर आना',
+  'Shortness of Breath': 'सांस फूलना',
+  'Chest Pain': 'सीने में दर्द',
+  'Allergies': 'एलर्जी',
+  'Known Allergies': 'ज्ञात एलर्जी',
+  'Past Illnesses': 'पिछली बीमारियां',
+  'Past Surgeries': 'पिछली सर्जरी',
+  'Current Medications': 'वर्तमान दवाएं',
+  'Family Medical History': 'पारिवारिक चिकित्सीय इतिहास',
+  'Diet': 'आहार',
+  'Vegetarian': 'शाकाहारी',
+  'Non-Vegetarian': 'मांसाहारी',
+  'Smoking': 'धूम्रपान',
+  'Alcohol': 'शराब',
+  'Tobacco': 'तंबाकू',
+  'Yes': 'हाँ',
+  'No': 'नहीं',
+  'None': 'कोई नहीं',
+  'Unknown': 'अज्ञात',
+
+  // Patient Portal
+  'Patient Portal': 'रोगी पोर्टल',
+  'Patient Dashboard': 'रोगी डैशबोर्ड',
+  'Welcome': 'स्वागत है',
+  'Prescriptions': 'दवा के पर्चे',
+  'Medical Reports': 'चिकित्सीय रिपोर्ट',
+  'Appointments': 'अपॉइंटमेंट्स',
+  "Today's Visit & Token": 'आज का दौरा एवं टोकन',
+  'Medical Journey & Timeline': 'चिकित्सा यात्रा एवं समयरेखा',
+  'Active Medicines & Records': 'सक्रिय दवाएं एवं रिकॉर्ड',
+  'Live Encrypted Sync': 'लाइव एन्क्रिप्टेड सिंक',
+  'No patient account selected.': 'कोई रोगी खाता चयनित नहीं है।',
+  'Please sign in to access your personal health records and appointments.': 'अपने व्यक्तिगत स्वास्थ्य रिकॉर्ड और अपॉइंटमेंट देखने के लिए कृपया साइन इन करें।',
+  'Go to Sign In': 'साइन इन पर जाएं',
+  'Previous Consultations': 'पिछले परामर्श',
+  'Profile & Settings': 'प्रोफ़ाइल एवं सेटिंग्स',
+  'OPD Token': 'ओपीडी टोकन',
+  'UHID': 'यूएचआईडी (UHID)',
+  'ABHA ID': 'ABHA आईडी',
+  'Room Number': 'कमरा नंबर',
+  'Status': 'स्थिति',
+  'In OPD Queue': 'ओपीडी कतार में',
+  'Ready for Doctor': 'डॉक्टर के लिए तैयार',
+  'Vitals Recorded': 'वाइटल्स दर्ज किए गए',
+  'View Details': 'विवरण देखें',
+  'Download PDF': 'पीडीएफ डाउनलोड करें',
+  'Scan Document / Prescription': 'दस्तावेज़ / पर्चा स्कैन करें',
+  'Upload Lab Report': 'लैब रिपोर्ट अपलोड करें',
+  'Consultation Completed': 'परामर्श पूर्ण हुआ',
+  'Doctor Advice': 'डॉक्टर की सलाह',
+  'Next Follow-up': 'अगला फॉलो-अप',
+  'Dosage': 'खुराक',
+  'Timing': 'समय',
+  'Before Food': 'भोजन से पहले',
+  'After Food': 'भोजन के बाद',
+  'Morning': 'सुबह',
+  'Afternoon': 'दोपहर',
+  'Night': 'रात',
+
+  // Doctor & Staff Portal
+  'Doctor Clinical Consultation Portal': 'डॉक्टर क्लिनिकल परामर्श पोर्टल',
+  'Active OPD Patient Queue': 'सक्रिय ओपीडी रोगी कतार',
+  'AI Clinical Briefing & Intake Summary': 'AI क्लिनिकल ब्रीफिंग एवं सारांश',
+  'e-Prescription & Advice': 'ई-पर्चे एवं चिकित्सीय सलाह',
+  'Complete Consultation & Issue Rx': 'परामर्श पूरा करें एवं पर्चा जारी करें',
+  'Verify & Sign Intake': 'सत्यापित करें एवं हस्ताक्षर करें',
+  'Red Flag Alert': 'रेड फ्लैग चेतावनी',
+  'Critical Emergency Priority': 'अत्यंत गंभीर आपातकालीन प्राथमिकता',
+  'Standard OPD': 'मानक ओपीडी',
+  'Patient Dossier': 'रोगी डोजियर',
+  'Differential Diagnosis': 'संभावित निदान (डिफरेंशियल)',
+  'AYUSH Cross-Match': 'आयुष क्रॉस-मैच विश्लेषण',
+  'Contraindications': 'दवाओं के प्रतिकूल प्रभाव',
+  'Drug Interactions': 'दवा पारस्परिक क्रिया',
+  'Prescribe Medicine': 'दवा लिखें',
+  'Add Medicine': 'दवा जोड़ें',
+  'Medicine Name': 'दवा का नाम',
+  'Dosage & Frequency': 'खुराक एवं आवृत्ति',
+  'Duration (Days)': 'अवधि (दिन)',
+  'Special Instructions': 'विशेष निर्देश',
+  'Lab Tests Advised': 'सलाह दी गई लैब जांच',
+  'Referral Department': 'रेफरल विभाग',
+  'Sign & Finalize': 'हस्ताक्षर एवं अंतिम रूप दें',
+
+  // Triage & Emergency Nurse
+  'Triage Nurse Portal': 'ट्राइएज नर्स पोर्टल',
+  'Live Triage Queue': 'लाइव ट्राइएज कतार',
+  'Record Vitals': 'वाइटल्स दर्ज करें',
+  'Assign Priority': 'प्राथमिकता निर्धारित करें',
+  'Emergency Red': 'आपातकालीन लाल (तत्काल)',
+  'Urgent Yellow': 'जरूरी पीला (15 मिनट)',
+  'Standard Green': 'मानक हरा (सामान्य)',
+  'Alert Doctor': 'डॉक्टर को सूचित करें',
+  'Dispatch Nurse': 'नर्स भेजें',
+
+  // Authentication & Forms
+  'Patient Authentication': 'रोगी प्रमाणीकरण',
+  'Mobile Number': 'मोबाइल नंबर',
+  'Enter 10-digit mobile number': '10 अंकों का मोबाइल नंबर दर्ज करें',
+  'PIN': 'सुरक्षा पिन (PIN)',
+  'Enter 4–6 digit security PIN': '4-6 अंकों का सुरक्षा पिन दर्ज करें',
+  'Login with OTP instead': 'ओटीपी (OTP) से लॉगिन करें',
+  'Login with PIN instead': 'पिन (PIN) से लॉगिन करें',
+  'Forgot PIN?': 'पिन भूल गए?',
+  'Verification Code (OTP)': 'सत्यापन कोड (OTP)',
+  'Enter 6-digit OTP': '6 अंकों का ओटीपी दर्ज करें',
+  'Resend OTP': 'ओटीपी पुनः भेजें',
+  'First time using MediKiosk?': 'मेडीकियोस्क का पहली बार उपयोग कर रहे हैं?',
+  'Create Account': 'नया खाता बनाएं',
+  'Creating Account...': 'खाता बनाया जा रहा है...',
+  'Full Name': 'पूरा नाम',
+  'Enter patient full legal name': 'रोगी का पूरा कानूनी नाम दर्ज करें',
+  'Date of Birth / Age (Years)': 'जन्म तिथि / आयु (वर्ष)',
+  'Gender': 'लिंग',
+  'Preferred Language': 'पसंदीदा भाषा',
+  'Create 4–6 Digit Security PIN': '4-6 अंकों का सुरक्षा पिन बनाएं',
+  'Confirm PIN': 'पिन की पुष्टि करें',
+  'Optional ABHA Health ID (Auto-generated if empty)': 'वैकल्पिक ABHA स्वास्थ्य आईडी (खाली रहने पर स्वतः बनेगी)',
+  'Preferred Medical System': 'पसंदीदा चिकित्सा पद्धति',
+  'Allopathy (Modern Medicine)': 'एलोपैथी (आधुनिक चिकित्सा)',
+  'Ayurveda': 'आयुर्वेद',
+  'Homeopathy': 'होम्योपैथी',
+  'Target OPD Department': 'लक्षित ओपीडी विभाग',
+  'General Medicine': 'सामान्य चिकित्सा (General Medicine)',
+  'Pediatrics': 'बाल रोग (Pediatrics)',
+  'Orthopedics': 'हड्डी रोग (Orthopedics)',
+  'Gynecology': 'स्त्री रोग (Gynecology)',
+  'Cardiology': 'हृदय रोग (Cardiology)',
+  'ENT': 'कान, नाक एवं गला (ENT)',
+  'Dermatology': 'त्वचा रोग (Dermatology)',
+  'Ophthalmology': 'नेत्र रोग (Eye)',
+  'Primary Symptoms / Reason for Visit (Optional)': 'प्राथमिक लक्षण / आने का कारण (वैकल्पिक)',
+  'Describe symptoms or reason for visit (e.g. fever, headache, body pain)...': 'लक्षण या आने का कारण बताएं (जैसे बुखार, सिरदर्द, बदन दर्द)...',
+  'I consent under the DPDP Act 2023 for MediKiosk AI and hospital staff to process my demographic and clinical intake data for OPD consultation and generate an AI clinical briefing.': 'मैं DPDP अधिनियम 2023 के तहत ओपीडी परामर्श और AI क्लिनिकल ब्रीफिंग तैयार करने हेतु अपने डेटा के प्रसंस्करण के लिए सहमति देता/देती हूँ।',
+  'Signing In...': 'साइन इन हो रहा है...',
+  'Back to Home': 'मुख्य पृष्ठ पर वापस जाएं',
+  'Back to Sign In': 'साइन इन पर वापस जाएं',
+  'Back to Kiosk Intake': 'कियोस्क इंटेक पर वापस जाएं',
+  'Staff Login': 'स्टाफ लॉगिन',
+  'Physician & Staff Authentication': 'चिकित्सक एवं स्टाफ प्रमाणीकरण',
+  'Staff Code / User ID': 'स्टाफ कोड / यूजर आईडी',
+  'Password / PIN': 'पासवर्ड / पिन',
+
+  // Ambulance Modal
+  'Immediate Emergency Ambulance Dispatch': 'तत्काल आपातकालीन एम्बुलेंस प्रेषण',
+  'Call 108 Immediately': 'तुरंत 108 पर कॉल करें',
+  'Caller Name': 'कॉल करने वाले का नाम',
+  'Enter caller full name': 'कॉल करने वाले का पूरा नाम दर्ज करें',
+  'Patient Name': 'रोगी का नाम',
+  'Enter patient name': 'रोगी का नाम दर्ज करें',
+  'Contact Mobile': 'संपर्क मोबाइल नंबर',
+  'Enter 10-digit phone': '10 अंकों का फोन नंबर दर्ज करें',
+  'Pickup Location & Landmark': 'पिकअप स्थान एवं लैंडमार्क',
+  'Detecting live GPS location...': 'लाइव जीपीएस स्थान का पता लगाया जा रहा है...',
+  'Nature of Medical Emergency': 'चिकित्सीय आपातकाल का प्रकार',
+  'Select emergency type...': 'आपातकाल का प्रकार चुनें...',
+  'Severe Chest Pain / Heart Attack': 'सीने में तेज दर्द / दिल का दौरा',
+  'Severe Breathing Difficulty': 'सांस लेने में अत्यधिक कठिनाई',
+  'Road Traffic Accident / Trauma': 'सड़क दुर्घटना / गंभीर चोट',
+  'Loss of Consciousness / Stroke': 'बेहोशी / स्ट्रोक के लक्षण',
+  'Severe Burn Injury': 'गंभीर रूप से जलना',
+  'Pregnancy / Labor Emergency': 'प्रसव / गर्भावस्था आपातकाल',
+  'High Fever with Convulsions': 'तेज बुखार के साथ दौरे',
+  'Dispatch Ambulance Now (108)': 'अभी एम्बुलेंस रवाना करें (108)',
+  'Ambulance Dispatched!': 'एम्बुलेंस रवाना हो चुकी है!',
+  'Driver Name:': 'ड्राइवर का नाम:',
+  'Driver Contact:': 'ड्राइवर का फोन:',
+  'Estimated Arrival:': 'पहुंचने का अनुमानित समय:',
+  'Tracking Ambulance Live': 'एम्बुलेंस की लाइव ट्रैकिंग',
+
+  // Voice AI
+  'Speak now — describe your symptoms...': 'अब बोलें — अपने लक्षणों का वर्णन करें...',
+  'Listening to your voice...': 'आपकी आवाज सुनी जा रही है...',
+  'Stop Listening': 'सुनना बंद करें',
+  'Start Voice Intake': 'आवाज से बोलना शुरू करें',
+  'Type Symptoms Instead': 'टाइप करके लक्षण बताएं',
+  'Voice input for this language is not available on this device. You can type instead.': 'इस उपकरण पर इस भाषा में आवाज इनपुट उपलब्ध नहीं है। आप टाइप कर सकते हैं।',
+  'Audio Announcements & Guidance': 'ध्वनि घोषणाएं एवं मार्गदर्शन',
+  'Play Audio Announcement': 'ध्वनि घोषणा सुनें',
+  'Listening in:': 'सुनने की भाषा:',
+  'Speaking in:': 'बोलने की भाषा:',
+
+  // Common UI Buttons & Labels
+  'Save': 'सहेजें',
+  'Saving...': 'सहेजा जा रहा है...',
+  'Cancel': 'रद्द करें',
+  'Confirm': 'पुष्टि करें',
+  'Close': 'बंद करें',
+  'Delete': 'हटाएं',
+  'Submit': 'जमा करें',
+  'Apply': 'लागू करें',
+  'Reset': 'रीसेट करें',
+  'Search': 'खोजें',
+  'Loading...': 'लोड हो रहा है...',
+  'Please wait...': 'कृपया प्रतीक्षा करें...',
+  'Success': 'सफल',
+  'Error': 'त्रुटि',
+  'Warning': 'चेतावनी',
+  'Notice': 'सूचना',
+  'Dismiss': 'हटाएं',
+  'Retry': 'पुनः प्रयास करें',
+  'Refresh': 'रीफ्रेश करें',
+  'Next': 'आगे',
+  'Done': 'पूर्ण',
+  'Select': 'चुनें',
+  'Upload': 'अपलोड करें',
+  'Download': 'डाउनलोड करें',
+  'Print': 'प्रिंट करें',
+  'Share': 'साझा करें',
+  'Copy': 'कॉपी करें',
+  'Copied!': 'कॉपी किया गया!',
+  'Clear': 'साफ करें',
+  'All': 'सभी',
+  'Active': 'सक्रिय',
+  'Completed': 'पूर्ण हुआ',
+  'Pending': 'लंबित',
+  'Cancelled': 'रद्द',
+  'Required': 'अनिवार्य',
+  'Optional': 'वैकल्पिक',
+  'View': 'देखें',
+  'Edit': 'संपादित करें',
+  'Action': 'कार्रवाई',
+  'Actions': 'कार्रवाइयां',
+  'Date': 'दिनांक',
+  'Time': 'समय',
+  'Total': 'कुल',
+  'Count': 'संख्या',
+  'Details': 'विवरण',
+  'More': 'अधिक',
+  'Less': 'कम',
+  'Yes, Proceed': 'हाँ, आगे बढ़ें',
+  'No, Go Back': 'नहीं, वापस जाएं',
+
+  // Standards & ABDM
+  'ABDM Architecture': 'ABDM संरचना',
+  'Ayushman Bharat Health Account (ABHA)': 'आयुष्मान भारत स्वास्थ्य खाता (ABHA)',
+  'Health Facility Registry (HFR)': 'स्वास्थ्य सुविधा रजिस्ट्री (HFR)',
+  'Healthcare Professionals Registry (HPR)': 'स्वास्थ्य पेशेवर रजिस्ट्री (HPR)',
+  'Unified Health Interface (UHI)': 'एकीकृत स्वास्थ्य इंटरफेस (UHI)',
+  'Consent Manager': 'सहमति प्रबंधक',
+  'Health Information User (HIU)': 'स्वास्थ्य सूचना उपयोगकर्ता (HIU)',
+  'Health Information Provider (HIP)': 'स्वास्थ्य सूचना प्रदाता (HIP)',
+  'DPDP Act 2023 Principles': 'DPDP अधिनियम 2023 सिद्धांत',
+  'Lawful Processing': 'वैध डेटा प्रसंस्करण',
+  'Purpose Limitation': 'उद्देश्य सीमा',
+  'Data Minimization': 'न्यूनतम डेटा संग्रह',
+  'Storage Limitation': 'भंडारण सीमा',
+  'Right to Erasure & Correction': 'हटाने एवं सुधार का अधिकार',
+  'Grievance Redressal': 'शिकायत निवारण',
+  'Close Architecture Modal': 'संरचना विंडो बंद करें',
+
+  // Hospital Map & Navigation
+  'Your Current GPS Location': 'आपका वर्तमान जीपीएस स्थान',
+  'Default map view &mdash; location not yet detected': 'डिफ़ॉल्ट नक्शा — स्थान का अभी पता नहीं चला',
+  'Emergency capability: Verified': 'आपातकालीन क्षमता: सत्यापित',
+  'Emergency capability: Not verified': 'आपातकालीन क्षमता: असत्यापित',
+  'Searching verified medical facilities...': 'सत्यापित चिकित्सा सुविधाओं की खोज जारी है...',
+  'Querying real nearby healthcare registry': 'निकटवर्ती वास्तविक स्वास्थ्य सेवा रजिस्ट्री से पूछताछ की जा रही है',
+  'No facilities matching your filter.': 'आपके फ़िल्टर से मेल खाती कोई सुविधा नहीं मिली।',
+  'Try switching filters or searching another area.': 'फ़िल्टर बदलकर देखें या किसी अन्य क्षेत्र में खोजें।',
+  'Retry Search': 'पुनः खोजें',
+  'Expand to 25 km': '25 किमी तक विस्तार करें',
+  'Expand to 50 km': '50 किमी तक विस्तार करें',
+  'Expand to 75 km': '75 किमी तक विस्तार करें',
+  'Retry GPS Location': 'जीपीएस स्थान पुनः प्रयास करें',
+  'Book OPD Consultation Token': 'ओपीडी परामर्श टोकन बुक करें',
+  'OPD Slot Confirmed!': 'ओपीडी स्लॉट सुनिश्चित हो गया!',
+  'Your consultation token has been generated.': 'आपका परामर्श टोकन जनरेट कर दिया गया है।',
+  'Start Pre-Intake at Kiosk →': 'कियोस्क पर प्री-इंटेक शुरू करें →',
+  'Start Pre-Intake at Kiosk &rarr;': 'कियोस्क पर प्री-इंटेक शुरू करें →',
+  'Select Department / Specialty': 'विभाग / विशेषज्ञता चुनें',
+  'Preferred Time Slot': 'पसंदीदा समय स्लॉट',
+  'Confirm Token': 'टोकन की पुष्टि करें',
+  'General OPD Consultation': 'सामान्य ओपीडी परामर्श',
+  'Emergency Medicine & Triage': 'आपातकालीन चिकित्सा एवं ट्राइएज',
+  'Internal Medicine': 'इंटरनल मेडिसिन',
+  'Pediatrics & Child Care': 'बाल रोग एवं शिशु देखभाल',
+  'Cardiology Consultation': 'कार्डियोलॉजी परामर्श',
+  'Today Morning (10:00 AM - 11:30 AM)': 'आज सुबह (10:00 AM - 11:30 AM)',
+  'Today Afternoon (01:00 PM - 03:00 PM)': 'आज दोपहर (01:00 PM - 03:00 PM)',
+  'Tomorrow Morning (09:30 AM - 11:30 AM)': 'कल सुबह (09:30 AM - 11:30 AM)',
+  'Speak voice command in any of 10 Indian languages': '10 भारतीय भाषाओं में से किसी में भी बोलें',
+  'Detect real device GPS coordinates': 'डिवाइस के वास्तविक जीपीएस निर्देशांक का पता लगाएं',
+  'Rapid Ambulance Dispatch & Live Route': 'त्वरित एम्बुलेंस प्रेषण एवं लाइव मार्ग',
+  'Nearby Hospitals in': 'निकटवर्ती अस्पताल:',
+  'OpenStreetMap Search': 'ओपनस्ट्रीटमैप खोज'
+};
+
+/**
+ * Smart lookup function that checks exact phrases, trimmed phrases,
+ * and parameterized templates.
+ */
+export function lookupHindiPhrase(text: string): string | null {
+  if (!text || typeof text !== 'string') return null;
+  const trimmed = text.trim();
+  if (!trimmed) return null;
+
+  // Direct exact match
+  if (HINDI_PHRASES[trimmed]) {
+    return HINDI_PHRASES[trimmed];
+  }
+
+  // Case-insensitive direct match
+  const lower = trimmed.toLowerCase();
+  for (const [k, v] of Object.entries(HINDI_PHRASES)) {
+    if (k.toLowerCase() === lower) {
+      return v;
+    }
+  }
+
+  // Dynamic template matching
+  // 1. "GPS accuracy: ±{number} m"
+  const gpsMatch = trimmed.match(/^GPS accuracy:\s*±?([0-9.]+)\s*m$/i);
+  if (gpsMatch) {
+    return `जीपीएस सटीकता: ±${gpsMatch[1]} मीटर`;
+  }
+
+  // 2. "Updated: {time}"
+  const updatedMatch = trimmed.match(/^Updated:\s*(.+)$/i);
+  if (updatedMatch) {
+    return `अपडेट किया गया: ${updatedMatch[1]}`;
+  }
+
+  // 3. "OpenStreetMap: {n} found ({r} km)"
+  const osmMatch = trimmed.match(/^OpenStreetMap:\s*(\d+)\s*found\s*\(([0-9.]+)\s*km\)$/i);
+  if (osmMatch) {
+    return `ओपनस्ट्रीटमैप: ${osmMatch[1]} सुविधाएं मिलीं (${osmMatch[2]} किमी)`;
+  }
+
+  // 4. "Route to {name}"
+  const routeMatch = trimmed.match(/^Route to\s+(.+)$/i);
+  if (routeMatch) {
+    return `${routeMatch[1]} का मार्ग`;
+  }
+
+  // 5. "All Facilities ({n})"
+  const facMatch = trimmed.match(/^All Facilities\s*\(([0-9]+)\)$/i);
+  if (facMatch) {
+    return `सभी सुविधाएं (${facMatch[1]})`;
+  }
+
+  // 6. "{n} km"
+  const kmMatch = trimmed.match(/^([0-9.]+)\s*km$/i);
+  if (kmMatch) {
+    return `${kmMatch[1]} किमी`;
+  }
+
+  // 7. "{n} mins" or "{n} min"
+  const minMatch = trimmed.match(/^([0-9.]+)\s*mins?$/i);
+  if (minMatch) {
+    return `${minMatch[1]} मिनट`;
+  }
+
+  // 8. "{h} hr {m} mins"
+  const hrMinMatch = trimmed.match(/^([0-9]+)\s*hr\s*([0-9]+)?\s*mins?$/i);
+  if (hrMinMatch) {
+    return `${hrMinMatch[1]} घंटा ${hrMinMatch[2] ? hrMinMatch[2] + ' मिनट' : ''}`.trim();
+  }
+
+  // 9. "Step {n} of {m}"
+  const stepMatch = trimmed.match(/^Step\s+([0-9]+)\s+of\s+([0-9]+)$/i);
+  if (stepMatch) {
+    return `चरण ${stepMatch[1]} / ${stepMatch[2]}`;
+  }
+
+  // 10. "~{n} mins"
+  const approxMinMatch = trimmed.match(/^~\s*([0-9.]+)\s*mins?$/i);
+  if (approxMinMatch) {
+    return `~${approxMinMatch[1]} मिनट`;
+  }
+
+  // 11. Low accuracy string
+  const lowAccMatch = trimmed.match(/Your location accuracy is low\s*\(?±?([0-9.]+)\s*m\)?\.?\s*Move to an open area and try again\.?/i);
+  if (lowAccMatch) {
+    return `आपकी स्थान सटीकता कम है (±${lowAccMatch[1]} मीटर)। खुले क्षेत्र में जाएं और पुनः प्रयास करें।`;
+  }
+
+  // 12. Distance & duration combo: "{d} km • {t} mins"
+  const distDurationMatch = trimmed.match(/^([0-9.]+)\s*km\s*•\s*([0-9.]+)\s*mins?$/i);
+  if (distDurationMatch) {
+    return `${distDurationMatch[1]} किमी • ${distDurationMatch[2]} मिनट`;
+  }
+
+  // 13. "Resume Step {n}"
+  const resumeStepMatch = trimmed.match(/^Resume Step\s+([0-9]+)$/i);
+  if (resumeStepMatch) {
+    return `चरण ${resumeStepMatch[1]} पुनः शुरू करें`;
+  }
+
+  return null;
+}
